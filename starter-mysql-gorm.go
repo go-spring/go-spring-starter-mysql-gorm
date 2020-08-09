@@ -47,13 +47,13 @@ func fromConfig(config StarterDB.DBConfig) (*gorm.DB, error) {
 
 // fromDB 从 *sql.DB 对象创建 *gorm.DB 客户端
 func fromDB(db *sql.DB) (*gorm.DB, error) {
-	SpringLogger.Info("open gorm mysql from db")
+	SpringLogger.Info("open gorm mysql")
 	return gorm.Open("mysql", db)
 }
 
 // closeDB 关闭 *gorm.DB 客户端
 func closeDB(db *gorm.DB) {
-	SpringLogger.Info("close mysql gorm")
+	SpringLogger.Info("close gorm mysql")
 	if err := db.Close(); err != nil {
 		SpringLogger.Error(err)
 	}
